@@ -1,4 +1,4 @@
-import { buildErrorMessage } from "vite";
+// import { buildErrorMessage } from "vite";
 import api from "../../api/api";
 
 /*
@@ -18,49 +18,34 @@ functions for each endpoint.
 const puppyApi = api.injectEndpoints({
   endpoints: (build) => ({
     getPuppies: build.query({
-      query: ({ id, name, imageURL }) => ({
+      query: () => ({
         url: "/players",
         method: "GET",
-        body: {
-          id,
-          name,
-          imageURL,
-        },
       }),
       providesTags: ["Puppy"],
     }),
     getPuppy: build.query({
-      query: ({ id, breed, status }) => ({
-        url: "/players",
+      query: (id) => ({
+        url: `/players/${id}`,
         method: "GET",
-        body: {
-          id,
-          breed,
-          status,
-        },
       }),
       providesTags: ["Puppy"],
     }),
     addPuppy: build.mutation({
-      mutation: ({ name, breed, status, imageURL }) => ({
+      query: ({ name, breed }) => ({
         url: "/players",
         method: "POST",
         body: {
           name,
           breed,
-          status,
-          imageURL,
         },
       }),
       invalidatesTags: ["Puppy"],
     }),
     deletePuppy: build.mutation({
-      mutation: ({ id }) => ({
-        url: "/players",
+      query: (id) => ({
+        url: `/players/${id}`,
         method: "DELETE",
-        body: {
-          id,
-        },
       }),
       invalidatesTags: ["Puppy"],
     }),
