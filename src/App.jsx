@@ -1,11 +1,11 @@
 import { useState } from "react";
 
 import { Provider } from "react-redux";
-import store from "./store/store";
+import store from "./app/store";
 
-import PuppyDetails from "./features/puppies/PuppyDetails";
-import PuppyList from "./features/puppies/PuppyList";
-import PuppyForm from "./features/puppies/PuppyForm";
+import PuppyDetails from "./components/puppies/PuppyDetails";
+import PuppyList from "./components/puppies/PuppyList";
+import PuppyForm from "./components/puppies/PuppyForm";
 
 import "./App.scss";
 
