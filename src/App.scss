@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 #root {
   padding: 1rem;
   display: flex;
@@ -36,7 +38,7 @@ article {
 
   li {
     display: flex;
-    flex-flow:column;
+    flex-flow: column;
     gap: 1ch;
 
     figure {
