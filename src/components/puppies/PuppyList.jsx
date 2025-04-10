@@ -19,12 +19,13 @@ export default function PuppyList({ setSelectedPuppyId, search }) {
 
   return (
     <article className="mt-4">
-      <h2>Puppy Bowl</h2>
-      <h3>Roster</h3>
       <ul className="puppies">
         {isLoading && <li>Loading puppies...</li>}
         {searchFor?.map((p) => (
-          <li key={p.id}>
+          <li
+            key={p.id}
+            className="bg-success-subtle border border-2 border-success rounded"
+          >
             <h3>
               {p.name} #{p.id}
             </h3>
@@ -32,7 +33,10 @@ export default function PuppyList({ setSelectedPuppyId, search }) {
               <img src={p.imageUrl} alt={p.name} />
             </figure>
             <Link to={`/puppy/${p.id}`}>
-              <button onClick={() => setSelectedPuppyId(p.id)}>
+              <button
+                className="btn btn-success m-1"
+                onClick={() => setSelectedPuppyId(p.id)}
+              >
                 See details
               </button>
             </Link>

@@ -27,29 +27,27 @@ export default function PuppyForm() {
   }
 
   return (
-    <>
+    <div>
       <h2 className="mt-3">Add a Puppy</h2>
-      <form onSubmit={postPuppy}>
-        <label>
-          Name
-          <input
-            name="puppyName"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-        </label>
-        <label>
-          Breed
-          <input
-            name="breed"
-            value={breed}
-            onChange={(e) => setBreed(e.target.value)}
-          />
-        </label>
-        <button>Add to Roster</button>
+      <form onSubmit={postPuppy} id="addPuppy" className="w-50">
+        <input
+          name="puppyName"
+          placeholder="Dog Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          className="form-control fw-semibold w-25"
+        />
+        <input
+          name="breed"
+          placeholder="Dog Breed"
+          value={breed}
+          onChange={(e) => setBreed(e.target.value)}
+          className="form-control fw-semibold w-25"
+        />
+        <button className="btn btn-outline-primary">Add to Roster</button>
         {isLoading && <output>Uploading puppy information...</output>}
         {error && <output>{error.message}</output>}
       </form>
-    </>
+    </div>
   );
 }

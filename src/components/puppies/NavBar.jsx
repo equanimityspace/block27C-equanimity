@@ -5,37 +5,27 @@ export function NavBar({ setSearch }) {
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
-          <NavLink className="navbar-brand" to="/">
+          <NavLink
+            className="navbar-brand fw-semibold fs-3 link-primary"
+            to="/"
+          >
             Puppy Bowl
           </NavLink>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
+          <form
+            className="d-flex"
+            role="search"
+            onSubmit={(event) => event.preventDefault()}
           >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <form
-              className="d-flex"
-              role="search"
-              onSubmit={(event) => event.preventDefault()}
-            >
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-                onChange={(e) => {
-                  setSearch(e.target.value);
-                }}
-              />
-            </form>
-          </div>
+            <input
+              className="form-control form-control-lg me-4"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+              onChange={(e) => {
+                setSearch(e.target.value);
+              }}
+            />
+          </form>
         </div>
       </nav>
     </>
