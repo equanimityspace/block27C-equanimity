@@ -17,10 +17,10 @@ export default function PuppyForm() {
 
     // Placeholder image w/ random photos of dogs
     const imageUrl = "https://loremflickr.com/200/300/dog";
-    console.log({ name, breed });
+    // console.log({ name, breed });
     try {
       const response = await addPuppy({ name, breed }).unwrap();
-      console.log(response);
+      // console.log(response);
     } catch (error) {
       console.error(error);
     }
@@ -28,7 +28,7 @@ export default function PuppyForm() {
 
   return (
     <>
-      <h2>Add a Puppy</h2>
+      <h2 className="mt-3">Add a Puppy</h2>
       <form onSubmit={postPuppy}>
         <label>
           Name

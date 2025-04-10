@@ -1,4 +1,5 @@
 import { useGetPuppyQuery, useDeletePuppyMutation } from "./puppySlice";
+import { Link } from "react-router-dom";
 
 /**
  * @component
@@ -36,9 +37,11 @@ export default function PuppyDetails({ selectedPuppyId, setSelectedPuppyId }) {
         </h3>
         <p>{puppy.breed}</p>
         <p>Team {puppy.team?.name ?? "Unassigned"}</p>
-        <button onClick={() => removePuppy(puppy.id)}>
-          Remove from roster
-        </button>
+        <Link to="/">
+          <button onClick={() => removePuppy(puppy.id)}>
+            Remove from roster
+          </button>
+        </Link>
         <figure>
           <img src={puppy.imageUrl} alt={puppy.name} />
         </figure>
@@ -47,9 +50,9 @@ export default function PuppyDetails({ selectedPuppyId, setSelectedPuppyId }) {
   }
 
   return (
-    <aside>
+    <div>
       <h2>Selected Puppy</h2>
       {$details}
-    </aside>
+    </div>
   );
 }
